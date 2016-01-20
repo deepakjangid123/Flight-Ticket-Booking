@@ -1,0 +1,8 @@
+Features:
+Admin Side:
+-Login/Logout
+-Add/modify customers info
+-Add/modify flight info
+-Cancel/Modify reservation
+-email/phone notification
+-resolving customer's complaint
