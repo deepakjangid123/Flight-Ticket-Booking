@@ -16,5 +16,4 @@ Customer side:
 -Fare Calender
 -booking instructions
 -complain/contact the company.
-
-Admin side:
+..
