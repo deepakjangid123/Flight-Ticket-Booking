@@ -17,4 +17,3 @@ Customer side:
 -booking instructions
 -complain/contact the company.
 
-Admin side:
