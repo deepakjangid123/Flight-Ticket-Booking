@@ -1,0 +1,22 @@
+The above use case diagram depicts nearly all the functions or activities that a user or a
+customer can perform on the application. They can be discussed in detail as follows:
+
+Home Page: Like all the other flight booking websites available online, the user can access the user
+home page of the Flight Booking System website, after he logs into the system. Here, he can
+search for flights(schedules,fare,source/destination etc).
+
+Login and Register: The Flight Booking System also comes with the customer registration
+details page, where the customer can enter his details and register. He can also create a 'username'
+and 'password'. Moreover, he will also be able to modify his details later on.
+
+Search Flights: The customer can also search for the flights available and can find the best flight according
+to his schedule.
+
+Ticket Booking: The customer can reserve his place on the flight by purchasing a ticket. To book a ticket he has
+to make payment via credit/debit card by providing his credentials.
+
+Booking Instructions: The website also provides instructions to the customers on how to book
+flight tickets along with the different packages. This system provides some of the best offers at the present time.
+
+Cancel Ticket: If user is no more interested, then this particular system also allows customer to cancel his ticket 
+which was booked before.
