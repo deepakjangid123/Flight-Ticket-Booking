@@ -1,19 +1,22 @@
 Features in the application:
 
 Customer side:
--Hompage
+-Home Page
 -Sign in and Sign up
--flight booking
+	-User Details
+-flight search
 	-class
 	-date
 	-Source/destination
 	-domestic/international
 	-one way/round trip
 	-no. of tickets
-	-flight search
-	-ticket confirmation status
-	-cancel ticket
--Fare Calender
+-flight booking
+	-Select Flight
+	-Make Payment
+		-Credit/Debit Card
+	-Ticket confirmation status	
+-cancel ticket
 -booking instructions
 -complain/contact the company.
 ..
