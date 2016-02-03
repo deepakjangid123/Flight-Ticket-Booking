@@ -73,4 +73,15 @@ Administrator Site:
 -Cancel/Modify reservation
 -email/SMS confirmation.
 
+Login: It is same as customer login but at admin level. Admins are privileged to modify (add/delete/change) customer’s info, flight info etc. They are the actual stakeholders of the product.
+
+Add/modify customers’ info: Admin controls the customers’ activity and they have sole right to modify database related to customer.
+
+Add/modify flight info: Admin should update the changes flight schedules from time to time. Moreover, fare details for each schedule is also updated. He can update cancellation of flight schedule due to some reason.
+
+Modify/Cancel Reservation: Admin can cancel reservation or modify when customer requested to do so or for another reason.
+
+Confirmation SMS/email: This is generated to send the booking Id or ticket No. of which flight user booked. This may also tell user about the confirmation of the ticket (confirm/pending etc.)
+
+
 
