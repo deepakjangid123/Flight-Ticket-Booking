@@ -6,23 +6,22 @@ class customer:
 		display homepage() with login()/register() option;
 	
 	if (search flight)
+		go to searchflight() with src, dest,
+		timeDate, noofticket, triptype, class;
+		flight schedules with price is returned;
 
-		if(login)
-			go to searchflight() with user details,
-			src, dest, timeDate, noofticket, triptype, class;
-			flight schedules with price is returned;
-
-				if(book ticket)
-					go to bookTicket() with a particular flight id, payment() class;
+			if (book ticket)
+				if(login)
+					go to bookTicket() with a particular flight id, payment() class with user details;
 					flight confirmation is returned;
 					generateTicket() with user details, payment details, flight details etc.
 
 					if(cancel ticket)
 		 				go to cancelTicket with booking confirmation id;
 
-		else
-			go to login()/register();
-			go to if(login) condition;
+				else
+					go to login()/register();
+					go to if(login) condition;
 
 
 	if(ask for intstruction)
