@@ -6,22 +6,22 @@ class customer:
 		display homepage() with login()/register() option;
 	
 	if (search flight)
+		go to searchflight() with src, dest,
+		timeDate, noofticket, triptype, class;
+		flight schedules with price is returned;
 
-		if(login)
-			go to searchflight() with user details,
-			src, dest, timeDate, noofticket, triptype, class;
-			flight schedules with price is returned;
-
-				if(book ticket)
-					go to bookticket() with a particular flight id, payment() class;
+			if (book ticket)
+				if(login)
+					go to bookTicket() with a particular flight id, payment() class with user details;
 					flight confirmation is returned;
+					generateTicket() with user details, payment details, flight details etc.
 
 					if(cancel ticket)
-		 				go to cancel ticket with booking id;
+		 				go to cancelTicket with booking confirmation id;
 
-		else
-			go to login()/register();
-			go to if(login) condition;
+				else
+					go to login()/register();
+					go to if(login) condition;
 
 
 	if(ask for intstruction)
@@ -63,27 +63,27 @@ class login:     (admin login is similar to this)
 
 class register:		(admin register is similar to this)
 	enter username, name, password, address, contact;
-	store all in userdetails;
+	store all in userDetails;
 
-class searchflight:
-	if(details are true)
+class searchFlight:
+	if(details are true && flightStatus is vacant)
 		get flight schedules which mateches with parameters provided by user from flightinfo();
 	
 	else 
 		return false;
 
-class bookticket:
+class bookTicket:
 	if(userdetails are true && flight schedule is true)
 		go to payment();
 		if(payment done)
 			generate booking id and return it;
 		else
 			return payment failed;
-class cancleticket:
+class cancleTicket:
 	get booking id from tiket() and cancel it;
 
 class ticket:
 	return the existing tickets;
 
-class contactus:
+class contactUs:
 	enter complaint texts and submit it along with username;
