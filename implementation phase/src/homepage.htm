@@ -1,24 +1,49 @@
 <!DOCTYPE html>
 <html>
-<title>Sign in</title>
-<body bgcolor="green">
-<head><h1 align="center" style="color:yellow">GreenTrip.com </h1></head><br><br>
-<form action="customer.jsp" method="post">
-<table border="1" align="center">
-<tr>
-<th bgcolor="white" align="center" style="color:blue">User Log-in</th>
-</tr>
-<tr>
-<td>
-<h4 align="center">
-Username: <input type="text" name="Username"><br>
-Password: <input type="password" name="password"><br>
 
-<input type="submit" align ="center "value="Sign in"/><br>
-<form action="register.jsp" method="post">
-<table>
-<br><br>Don't have an account yet?<br><input type="Submit" align="center" value="Register Here"/>
-</table>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/main.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="./bootstrap/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<title>Sign in</title>
+<body background="images\hp_bg.jpg">
+<head>
+<a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
+</head>
+<div class="container col-md-3 xxx">
+	<!-- TiTle -->
+	<div class="row">
+		<h3 class="text-center">User-Login</h3>
+	</div>
+	<!--Sign inFrom-->
+	<div class="row">
+		<form>
+			<div class="form-group">
+					<label for="iemail1">Email address</label>
+					<input type="email" class="form-control" id="iemail1" placeholder="Email">
+			</div>
+			<div class="form-group ">
+				<label for="ipwd1">Password</label>
+				<input type="password" class="form-control" id="ipwd1" placeholder="Password" >
+			</div>
+			<div class="checkbox">
+				<label>
+				<input type="checkbox"> Check me out
+				</label>
+			</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
+</div>
+<form action="signup.jsp" method="post">
+<div>
+<label>Don't have an account yet?</label>
+<button type="Submit" align="right">Register here</button>
+</div>
 </form>
 </h4>
 </table>
