@@ -12,7 +12,7 @@
 <title>Sign up</title>
 <body background="images\hp_bg.jpg">
 <a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
-<div class="container col-md-4 xxx">
+<div class="container col-md-4 col-md-offset-5">
 	<!-- TiTle -->
 	<div class="row">
 		<h3 class="text-center">Fill this information</h3>

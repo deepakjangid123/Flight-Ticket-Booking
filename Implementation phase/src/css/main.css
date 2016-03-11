@@ -2,3 +2,26 @@
 .xxx {
 	padding-left: 5%;
 }
+.clm {
+    -webkit-column-count: 6; 
+	-webkit-column-gap: 10px;
+    -moz-column-count: 6;
+}
+.col-md-offset-2 {
+    margin-left: 22%;
+}
+.widget_tabs_info {
+    border-bottom: 3px solid #febe11;
+}
+.hidden-xs {
+    display: block !important;
+}
+.nav{
+	    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
