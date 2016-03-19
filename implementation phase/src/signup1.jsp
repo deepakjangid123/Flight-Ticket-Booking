@@ -17,6 +17,9 @@
 	<div class="row">
 		<h3 class="text-center">Fill this information</h3>
 	</div>
+	<div class="row">
+		<b class="text-center" style="color:red"><i>Passwords are not matching!</i></b>
+	</div>
 	<!--Sign UpFrom-->
 	<div class="row">
 		<form action="signupverify.jsp">
@@ -59,7 +62,7 @@
 			</div>
 			<div class="form-group">
 				<label for="credit_card_no">Credit Card Number</label><br>
-				<input type="number"  max="99999999" min="11111111" name="credit_card_no" class="form-control" id="icredit" placeholder="8-digit number" required>
+				<input type="number" name="credit_card_no" class="form-control" maxlength="8" id="icredit" placeholder="8-digit number" required>
 			</div>
 			
 			<div class="checkbox">

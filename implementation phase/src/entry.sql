@@ -8,13 +8,13 @@ insert into flight_info values("G2357I","GHY","IMF","11:30:00","12:30:00",110,"S
 insert into flight_info values("G3483P","GHY","PTN","09:00:00","17:50:00",80,"Wednesday","Wednesday");
 insert into flight_info values("G4583U","GHY","UPR","12:00:00","23:45:00",150,"Sunday","Sunday");
 
-insert into seats values("G3483J","business",10);
-insert into seats values("G3483J","economy",50);
-insert into seats values("G2357I","economy",35);
-insert into seats values("G2357I","business",5);
-insert into seats values("G3483P","business",0);
-insert into seats values("G3483P","economy",13);
-insert into seats values("G4583U","business",9);
-insert into seats values("G4583U","economy",0);
+insert into seats values("G3483J","business",10,13000);
+insert into seats values("G3483J","economy",50,7500);
+insert into seats values("G2357I","economy",35,5000);
+insert into seats values("G2357I","business",8,15000);
+insert into seats values("G3483P","business",0,12000);
+insert into seats values("G3483P","economy",13,8500);
+insert into seats values("G4583U","business",9,20000);
+insert into seats values("G4583U","economy",0,9000);
 
-insert into ticket values("deepakjangid123@gmail.com","G2805161200EJ","G3483J",13000);
+insert into ticket values("deepakjangid123@gmail.com","G34832805161200EJ","G3483J",13000);

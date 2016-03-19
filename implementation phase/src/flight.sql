@@ -29,6 +29,7 @@ create table seats
 flight_id varchar(30) not null,
 flight_class varchar(20) not null default 'economy',
 available_seats int not null,
+amount int not null,
 foreign key(flight_id) references flight_info(flight_id) on delete cascade
 );
 

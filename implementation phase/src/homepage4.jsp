@@ -21,7 +21,13 @@
 	</style>
 </head>
 <body background="images\hp_bg.jpg">
-<div class="row">	
+<div class="row">
+	<div class="col-md-7 col-md-offset-9">
+	<b style='color:red'>Registration Successful!</b>
+	</div>
+</div>
+<div class="row">
+	
 	<nav class="nav">
 		<div class="col-sm-1"><a align="center" href="homepage.htm" style="color:lime"><h4>Flight</h4></a></div>
 		<div class="col-sm-1"><a align="center" href="homepage.htm" style="color:lime"><h4>Complaint</h4></a></div>
@@ -42,7 +48,7 @@
 			<form action="signinverify.jsp" method="post">
 				<div class="form-group">
 						<label for="Email">Email address</label>
-						<input type="email" name ="Email" class="form-control" id="iemail1" placeholder="Email">
+						<input type="email" name="Email" class="form-control" id="iemail1" placeholder="Email">
 				</div>
 				<div class="form-group ">
 					<label for="PWD">Password</label>
