@@ -9,7 +9,8 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="./bootstrap/js/bootstrap.min.js"></script>
-<title>Home Page</title>
+<script src="./jquery/jquery.min.js"></script>
+<title>Change Password</title>
 <head>
 	<a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
 	<style>
@@ -22,6 +23,20 @@
 </head>
 <body background="images\hp_bg.jpg">
 
+<script>
+
+check = function() {
+
+if($("#inewPWD1").val() == $("#inewPWD2").val())
+	return true;
+else{
+	alert("Changed passwords are not matching");
+	return false;
+	
+} 
+	
+}
+</script>
 
 <div class="row">
 	<div class="col-md-9 col-md-offset-10">
@@ -49,39 +64,31 @@
 	<div class="col-md-5 col-md-offset-1">
 		<h3 style="color:white"><b>Book your flight ticket here!</b></h3>
 	</div>
-</div>
-<div class="row">
-	
-	<div class="col-md-5 col-md-offset-1">
-	<form action="verifydate.jsp">
+	<div class="container col-md-3 col-md-offset-2">
 		<div class="row">
-				<div class="form-group">
-				<label for="source"><b Style="color:lime">Source</b></label>
-					<input type="text" name="source" class="form-control" id="isource" placeholder="Source" required>
-				</div>
-		  		<div class="form-group">
-				<label for="destination"><b Style="color:lime">Destination</b></label>
-					<input type="text" name="destination" class="form-control" id="idestination" placeholder="Destination" required>
+			<form onsubmit="return check()" action="passwordchangeverify.jsp" method="post">
+				<div>
+					<i style="color:red"><b>Entered Password is wrong!</b></i>
 				</div>
 				<div class="form-group">
-				<label for="departuredate"><b Style="color:lime">Departure Date</b></label>
-					<input type="date" name="departuredate" class="form-control" id="idestination" placeholder="Destination" required>
+						<label for="oldPWD">Old Password : </label>
+						<input type="password" name="oldPWD" class="form-control" id="ioldPWD1" placeholder="old password" required>
 				</div>
-				<div class="form-group">
-				  <label for="flightclass"><b Style="color:lime">Flight Class</b></label>
-				  <div>
-				  <select name="flightclass" class="select" name="flightclass">
-					<option selected>economy</option>
-					<option>business</option>
-				</select>
+				<div class="form-group ">
+					<label for="newPWD1">New Password : </label>
+					<input type="password" name="newPWD1" class="form-control" id="inewPWD1" placeholder="new password" required>
 				</div>
+				<div class="form-group ">
+					<label for="newPWD2">Confirm New Password : </label>
+					<input type="password" name="newPWD2" class="form-control" id="inewPWD2" placeholder="confirm new password" required>
+					
 				</div>
-			</div>
-			<button type="submit" class="btn btn-default">Search</button>
-		</form>
+				<button type="submit" onclick="check()" class="btn btn-default center">Change password</button>
+			</form>
+		</div>
 	</div>
-	
 </div>
+
 
 
 </body>

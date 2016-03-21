@@ -55,20 +55,23 @@
 	<div class="col-md-5 col-md-offset-1">
 	<form action="verifydate.jsp">
 		<div class="row">
+				<div>
+				<i style="color:red">Cannot book ticket for a past date!!</i>
+				</div>
 				<div class="form-group">
 				<label for="source"><b Style="color:lime">Source</b></label>
 					<input type="text" name="source" class="form-control" id="isource" placeholder="Source" required>
 				</div>
 		  		<div class="form-group">
-				<label for="destination"><b Style="color:lime">Destination</b></label>
+				<label for="destination"><b style="color:lime">Destination</b></label>
 					<input type="text" name="destination" class="form-control" id="idestination" placeholder="Destination" required>
 				</div>
 				<div class="form-group">
-				<label for="departuredate"><b Style="color:lime">Departure Date</b></label>
+				<label for="departuredate"><b style="color:lime">Departure Date</b></label>
 					<input type="date" name="departuredate" class="form-control" id="idestination" placeholder="Destination" required>
 				</div>
 				<div class="form-group">
-				  <label for="flightclass"><b Style="color:lime">Flight Class</b></label>
+				  <label for="flightclass"><b style="color:lime">Flight Class</b></label>
 				  <div>
 				  <select name="flightclass" class="select" name="flightclass">
 					<option selected>economy</option>

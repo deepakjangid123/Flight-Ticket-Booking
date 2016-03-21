@@ -26,15 +26,15 @@
 			<label >Name</label>
 			<div class="form-inline">
 				<div class="form-group">
-					<input type="text" name="firstname" class="form-control" id="ifname" placeholder="First Name" reqiured>
+					<input type="text" name="firstname" class="form-control" id="ifname" placeholder="First Name" required>
 				</div>
 		  		<div class="form-group">
-					<input type="text" name="lastname" class="form-control" id="ilname" placeholder="Last Name" reqiured>
+					<input type="text" name="lastname" class="form-control" id="ilname" placeholder="Last Name">
 				</div>
 			</div>
 			<div class="form-group">
 					<label for="Address">Address</label>
-					<input type="text" name="Address" class="form-control" id="iaddress1" placeholder="Address" required>
+					<input type="text" name="Address" class="form-control" id="iaddress1" placeholder="Address">
 			</div>
 			<div class="form-group">
 					<label for="gender">Gender</label>

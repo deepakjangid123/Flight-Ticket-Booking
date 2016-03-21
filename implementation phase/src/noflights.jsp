@@ -9,7 +9,7 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="./bootstrap/js/bootstrap.min.js"></script>
-<title>Home Page</title>
+<title>No flights</title>
 <head>
 	<a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
 	<style>
@@ -51,37 +51,16 @@
 	</div>
 </div>
 <div class="row">
-	
 	<div class="col-md-5 col-md-offset-1">
-	<form action="verifydate.jsp">
-		<div class="row">
-				<div class="form-group">
-				<label for="source"><b Style="color:lime">Source</b></label>
-					<input type="text" name="source" class="form-control" id="isource" placeholder="Source" required>
-				</div>
-		  		<div class="form-group">
-				<label for="destination"><b Style="color:lime">Destination</b></label>
-					<input type="text" name="destination" class="form-control" id="idestination" placeholder="Destination" required>
-				</div>
-				<div class="form-group">
-				<label for="departuredate"><b Style="color:lime">Departure Date</b></label>
-					<input type="date" name="departuredate" class="form-control" id="idestination" placeholder="Destination" required>
-				</div>
-				<div class="form-group">
-				  <label for="flightclass"><b Style="color:lime">Flight Class</b></label>
-				  <div>
-				  <select name="flightclass" class="select" name="flightclass">
-					<option selected>economy</option>
-					<option>business</option>
-				</select>
-				</div>
-				</div>
-			</div>
-			<button type="submit" class="btn btn-default">Search</button>
+		<h5 style="color:red"><b>No flights are there according to your schedule!</b></h5>
+	</div>
+	<div class="col-md-5 col-md-offset-2">
+		<form action="homepage2.jsp">
+			<button type="submit" class="btn btn-default">Go Back</button>
 		</form>
 	</div>
-	
 </div>
+
 
 
 </body>
