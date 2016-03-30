@@ -49,7 +49,7 @@ try{
   Class.forName("com.mysql.jdbc.Driver");
 	  
 	  //get connection
-	 Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/ars?user=root&password=feelthechange");
+	 Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/ars?user=root&password=yongchak");
 	
 	  //statement query
 	 Statement state =connect.createStatement();
@@ -64,8 +64,6 @@ try{
 		    if(tempemail.equals(email))
 			{
 				flag=1;
-				
-				
 			}
 	
 	  }

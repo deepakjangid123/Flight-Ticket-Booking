@@ -11,7 +11,7 @@
 <script src="./bootstrap/js/bootstrap.min.js"></script>
 <title>Home Page</title>
 <head>
-	<a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
+	<a align="center" href="homepage2.jsp" style="color:lime"><h1>GreenTrip.com</h1></a>
 	<style>
 	.part {
 		-webkit-column-count: 4; 
@@ -27,7 +27,6 @@
 	<div class="col-md-9 col-md-offset-10">
 		Hello, <a href="profile.jsp"><b style="color:lime"><%= session.getAttribute( "firstname" )%> <%=session.getAttribute("lastname")%></b></a>
 	</div>
-
 </div>
 <div class="row">
 	<div class="col-md-9 col-md-offset-11">

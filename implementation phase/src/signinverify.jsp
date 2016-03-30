@@ -29,7 +29,8 @@
 String email=request.getParameter("Email");
 String passwd= request.getParameter("PWD");
 
-String tempemail,temppasswd,tempfname,templname,tempaddress,tempgender,tempcontactno;int tempcreditcardno;
+String tempemail,temppasswd,tempfname,templname,tempaddress,tempgender,tempcontactno;
+int tempcreditcardno;
 int flag=0;
 		
 try{ 
@@ -37,15 +38,15 @@ try{
   Class.forName("com.mysql.jdbc.Driver");
 	  
 	  //get connection
-	 Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/ars?user=root&password=feelthechange");
+	 Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/ars?user=root&password=yongchak");
 	
 	  //statement query
 	 Statement state =connect.createStatement();
 	
 	
-	  ResultSet result = state.executeQuery("select * from customer");
+	  ResultSet result = state.executeQuery("select * from customer where username='"+email+"'");
 	
-	  while(result.next()){
+	  if(result.next()){
 		   tempemail = result.getString("username");
 			temppasswd=result.getString("password");
 			tempfname=result.getString("first_name");
@@ -81,7 +82,7 @@ try{
        <jsp:forward page="homepage2.jsp"></jsp:forward>
     <%
 	  }
-	  if(flag==0)
+	  else if(flag==0)
 	  {
 		%>
        <jsp:forward page="homepage1.htm"></jsp:forward>

@@ -4,10 +4,10 @@ username varchar(30) not null,
 password varchar(20) not null,
 first_name varchar(20) not null,
 last_name varchar(20) not null,
-contact_no int,
-credit_card_no int not null,
 address varchar(250),
 gender varchar(1) CHECK (gender='M' or gender='F'),
+contact_no varchar(30),
+credit_card_no int not null,
 primary key(username)
 );
 
@@ -17,10 +17,10 @@ flight_id varchar(30) not null,
 source varchar(30) not null,
 destination varchar(30) not null,
 departure_time TIME,
-departure_day varchar(10) not null,
 arrival_time TIME,
-arrival_day varchar(10) not null,
 total_seats int,
+departure_day varchar(10) not null,
+arrival_day varchar(10) not null,
 primary key(flight_id)
 );
 
