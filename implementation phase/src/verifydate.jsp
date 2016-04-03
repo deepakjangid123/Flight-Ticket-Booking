@@ -13,7 +13,7 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="./bootstrap/js/bootstrap.min.js"></script>
-<title>Sign up</title>
+<title>Date verification</title>
 <head>
 	<a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
 	<style>
@@ -33,13 +33,14 @@ session.setAttribute("flightclass",flightclass);
 String Destination=request.getParameter("destination");
 session.setAttribute("destination",Destination);
 String Departure_date=request.getParameter("departuredate");
+session.setAttribute("departuredate",Departure_date);
 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	   //get current date time with Date()
 	   Date date = new Date();
 	DateFormat dat = new SimpleDateFormat("yyyy-MM-dd");
 String dt= dat.format(date);
-out.println(dt);
-out.println(Departure_date);
+//out.println(dt);
+//out.println(Departure_date);
 SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd");
 Date depart = formatter.parse(Departure_date);
 Date current = formatter.parse(dt);
@@ -52,7 +53,8 @@ if(daysDiff<=0)
 {
 
 
-String tempsource,tempdestination,tempday;
+String tempsource,tempdestination,tempday,tempflightid;
+int tempavailableseats;
 int flag=0;
 		
 try{ 
@@ -60,14 +62,15 @@ try{
   Class.forName("com.mysql.jdbc.Driver");
 	  
 	  //get connection
-	 Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/ars?user=root&password=yongchak");
+	 Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/ars?user=root&password=feelthechange");
 	
 	  //statement query
 	 Statement state =connect.createStatement();
 	
 	
 	  ResultSet result = state.executeQuery("select * from flight_info");
-	
+		
+		
 	  while(result.next()){
 		   tempsource = result.getString("source");
 		   tempdestination = result.getString("destination");
@@ -75,10 +78,14 @@ try{
 		 
 		    if(tempsource.equals(Source) && tempdestination.equals(Destination) && tempday.equals(Day))
 			{
-				flag=1;
+				
+					flag=1;
 			}
 	
+			
+	
 	  }
+	 
 	  if(flag==0)
 	  {
 		%>

@@ -13,7 +13,7 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="./bootstrap/js/bootstrap.min.js"></script>
-<title>Verification</title>
+<title>Confirm User Details</title>
 <head>
 	<a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
 	<style>
@@ -26,14 +26,19 @@
 </head>
 <body background="images\hp_bg.jpg">
 <%
-String email=session.getAttribute("userName").toString();
-String pwd=session.getAttribute("passwrd").toString();
-String oldpwd=request.getParameter("oldPWD");
-String newpwd= request.getParameter("newPWD1");
-String tempemail,tempoldpwd;
-int flag=0;
+String flightid=session.getAttribute("flightid").toString();
+String flightclass=session.getAttribute("flightclass").toString();
+int nooftickets1=Integer.parseInt(request.getParameter("nooftickets"));
+String noofticketss=request.getParameter("nooftickets");
+session.setAttribute("nooftickets",noofticketss);
 
-if(pwd.equals(oldpwd)){
+
+
+
+String tempflightid,tempflightclass;
+int tempavailableseats;
+int flag2=0;
+		
 try{ 
 
   Class.forName("com.mysql.jdbc.Driver");
@@ -44,41 +49,39 @@ try{
 	  //statement query
 	 Statement state =connect.createStatement();
 	
-	
-	  ResultSet result = state.executeQuery("select * from customer");
-	
-	  while(result.next()){
-		   tempemail=result.getString("username");
-		   tempoldpwd=result.getString("password");
-		    if(email.equals(tempemail) && oldpwd.equals(tempoldpwd))
+	 ResultSet result1 = state.executeQuery("select * from seats");
+	 while(result1.next()){
+		   tempflightid = result1.getString("flight_id");
+			tempflightclass=result1.getString("flight_class");
+		    if(tempflightid.equals(flightid) && tempflightclass.equals(flightclass))
 			{
-				 PreparedStatement insert= connect.prepareStatement("UPDATE customer SET password = ? WHERE username = ?");
-				 insert.setString(1,newpwd);
-				 insert.setString(2,email);
-				 session.setAttribute("passwrd",newpwd);
-				  insert.executeUpdate();
-				  %>
-       <jsp:forward page="passwordchanged.jsp"></jsp:forward>
-    <%
+				tempavailableseats=result1.getInt("available_seats");
+				if(tempavailableseats>=nooftickets1)
+					flag2=1;
 			}
 	
+			
+	
 	  }
-	 
+	  if(flag2==0)
+	  {
+		%>
+       <jsp:forward page="notenoughseats.jsp"></jsp:forward>
+		<%
+	  }
+	  else if(flag2==1)
+	  {
+		%>
+       <jsp:forward page="passengerdetails.jsp"></jsp:forward>
+		<%
+		}
 	   connect.close();
 	   }catch(Exception ex){
 	  //handle error
 	  ex.printStackTrace();
-	  }
-	  }
-	  else
-	  {
-	  %>
-       <jsp:forward page="changepassword1.jsp"></jsp:forward>
-    <%
-	  
-	  }
-	
-	
+  }
+ 
+
  %>
 
 </body>

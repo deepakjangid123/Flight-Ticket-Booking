@@ -6,7 +6,7 @@ first_name varchar(20) not null,
 last_name varchar(20) not null,
 address varchar(250),
 gender varchar(1) CHECK (gender='M' or gender='F'),
-contact_no varchar(30),
+contact_no varchar(30) not null,
 credit_card_no int not null,
 primary key(username)
 );
@@ -35,11 +35,11 @@ foreign key(flight_id) references flight_info(flight_id) on delete cascade
 
 create table ticket
 (
+name varchar(30) not null,
 username varchar(30) not null,
 booking_id varchar(30) not null,
 flight_id varchar(30) not null,
 amount double not null,
-primary key(booking_id),
 foreign key(username) references customer(username),
 foreign key(flight_id) references flight_info(flight_id)
 );

@@ -11,7 +11,7 @@
 <script src="./bootstrap/js/bootstrap.min.js"></script>
 <title>Home Page</title>
 <head>
-	<a align="center" href="homepage2.jsp" style="color:lime"><h1>GreenTrip.com</h1></a>
+	<a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
 	<style>
 	.part {
 		-webkit-column-count: 4; 
@@ -27,6 +27,7 @@
 	<div class="col-md-9 col-md-offset-10">
 		Hello, <a href="profile.jsp"><b style="color:lime"><%= session.getAttribute( "firstname" )%> <%=session.getAttribute("lastname")%></b></a>
 	</div>
+
 </div>
 <div class="row">
 	<div class="col-md-9 col-md-offset-11">
@@ -39,7 +40,7 @@
 </div>
 <div class="row">	
 	<nav class="nav">
-		<div class="col-sm-1"><a align="center" href="homepage.htm" style="color:lime"><h4>Flight</h4></a></div>
+		<div class="col-sm-1"><a align="center" href="homepage2.jsp" style="color:lime"><h4>Flight</h4></a></div>
 		<div class="col-sm-1"><a align="center" href="homepage.htm" style="color:lime"><h4>Complaint</h4></a></div>
 		<div class="col-sm-1"><a align="center" href="homepage.htm" style="color:lime"><h4>Instructions</h4></a></div>
 		<div class="col-sm-2"><a align="center" href="homepage.htm" style="color:lime"><h4>Contact Us</h4></a></div>
@@ -48,6 +49,16 @@
 	<div class="col-md-5 col-md-offset-1">
 		<h3 style="color:white"><b>Book your flight ticket here!</b></h3>
 	</div>
+</div>
+<div class="col-md-5 col-md-offset-10">
+<form action="bookinglist.jsp">
+		<div class="row">
+				<div class="form-group">
+				<label><b Style="color:brown">Check your bookings here</b></label>
+				</div>
+			<button type="submit" class="btn btn-default">Booking Details</button>
+		</form>
+		</div>
 </div>
 <div class="row">
 	
@@ -74,14 +85,14 @@
 					<option>business</option>
 				</select>
 				</div>
-				</div>
 			</div>
 			<button type="submit" class="btn btn-default">Search</button>
 		</form>
-	</div>
+		
 	
 </div>
 
-
+</div>
+</div>
 </body>
 </html>

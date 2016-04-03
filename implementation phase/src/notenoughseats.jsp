@@ -9,7 +9,7 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="./bootstrap/js/bootstrap.min.js"></script>
-<title>No flights</title>
+<title>Not enough seats!</title>
 <head>
 	<a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
 	<style>
@@ -52,14 +52,18 @@
 </div>
 <div class="row">
 	<div class="col-md-5 col-md-offset-1">
-		<h5 style="color:red"><b>No flights are there according to your schedule!</b></h5>
+		<i style="color:indigo"><b>Not enough seats!!</b></i>
 	</div>
-	<div class="col-md-5 col-md-offset-2">
-		<form action="homepage2.jsp">
-			<button type="submit" class="btn btn-default">Go Back</button>
+	</div>
+	<div>
+	<div class="col-md-5 col-md-offset-1">
+	<form action="enterdetails.jsp">
+		
+			<button type="submit" class="btn btn-default">Go back</button>
 		</form>
 	</div>
-</div>
+	</div>
+	
 
 
 

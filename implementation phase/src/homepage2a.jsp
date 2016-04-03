@@ -40,7 +40,7 @@
 </div>
 <div class="row">	
 	<nav class="nav">
-		<div class="col-sm-1"><a align="center" href="homepage.htm" style="color:lime"><h4>Flight</h4></a></div>
+		<div class="col-sm-1"><a align="center" href="homepage2.jsp" style="color:lime"><h4>Flight</h4></a></div>
 		<div class="col-sm-1"><a align="center" href="homepage.htm" style="color:lime"><h4>Complaint</h4></a></div>
 		<div class="col-sm-1"><a align="center" href="homepage.htm" style="color:lime"><h4>Instructions</h4></a></div>
 		<div class="col-sm-2"><a align="center" href="homepage.htm" style="color:lime"><h4>Contact Us</h4></a></div>
@@ -49,6 +49,16 @@
 	<div class="col-md-5 col-md-offset-1">
 		<h3 style="color:white"><b>Book your flight ticket here!</b></h3>
 	</div>
+</div>
+<div class="col-md-5 col-md-offset-10">
+<form action="bookinglist.jsp">
+		<div class="row">
+				<div class="form-group">
+				<label><b Style="color:brown">Check your bookings here</b></label>
+				</div>
+			<button type="submit" class="btn btn-default">Booking Details</button>
+		</form>
+		</div>
 </div>
 <div class="row">
 	
@@ -76,6 +86,18 @@
 				  <select name="flightclass" class="select" name="flightclass">
 					<option selected>economy</option>
 					<option>business</option>
+				</select>
+				</div>
+				</div>
+				<div class="form-group">
+				  <label for="nooftickets"><b Style="color:lime">No. of Passengers</b></label>
+				  <div>
+				  <select name="nooftickets" class="select">
+					<option selected>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
 				</select>
 				</div>
 				</div>

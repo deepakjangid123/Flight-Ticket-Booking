@@ -9,7 +9,8 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="./bootstrap/js/bootstrap.min.js"></script>
-<title>No flights</title>
+<script src="./jquery/jquery.min.js"></script>
+<title>Enter no. of passenger</title>
 <head>
 	<a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
 	<style>
@@ -51,16 +52,28 @@
 	</div>
 </div>
 <div class="row">
+	
 	<div class="col-md-5 col-md-offset-1">
-		<h5 style="color:red"><b>No flights are there according to your schedule!</b></h5>
-	</div>
-	<div class="col-md-5 col-md-offset-2">
-		<form action="homepage2.jsp">
-			<button type="submit" class="btn btn-default">Go Back</button>
+	<form onsubmit="return check()" action="confirmuserdetails.jsp">
+		<div class="row">
+				<div class="form-group">
+				  <label for="nooftickets"><b Style="color:lime">No. of Passengers</b></label>
+				  <div>
+				  <select name="nooftickets" class="select" id="icreditcardno">
+					<option selected>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				</div>
+		  		
+			</div>
+			<button type="submit" class="btn btn-default">Proceed</button>
 		</form>
 	</div>
+	
 </div>
-
 
 
 </body>

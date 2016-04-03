@@ -17,4 +17,3 @@ insert into seats values("G3483P","economy",13,8500);
 insert into seats values("G4583U","business",9,20000);
 insert into seats values("G4583U","economy",0,9000);
 
-insert into ticket values("deepakjangid123@gmail.com","G34832805161200EJ","G3483J",13000);

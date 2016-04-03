@@ -9,9 +9,34 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="./bootstrap/js/bootstrap.min.js"></script>
+<script src="./jquery/jquery.min.js"></script>
 <title>Sign up</title>
+<head>
+	<a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
+	<style>
+	.part {
+		-webkit-column-count: 4; 
+		-webkit-column-gap: 10px;
+		-moz-column-count: 4;
+	}
+	</style>
+</head>
 <body background="images\hp_bg.jpg">
-<a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
+<script>
+
+check = function() {
+
+if($("#ipwd1").val() == $("#ipwd2").val())
+	return true;
+else{
+	alert("Passwords are not matching");
+	return false;
+	
+} 
+	
+}
+</script>
+
 <div class="container col-md-4 col-md-offset-5">
 	<!-- TiTle -->
 	<div class="row">
@@ -19,7 +44,7 @@
 	</div>
 	<!--Sign UpFrom-->
 	<div class="row">
-		<form action="signupverify.jsp">
+		<form onsubmit="return check()" action="signupverify.jsp" method="post">
 			<label >Name</label>
 			<div class="form-inline">
 				<div class="form-group">
@@ -47,7 +72,7 @@
 			</div>
 			<div class="form-group">
 				<label for="PWD2">Confirm Password</label>
-				<input type="password" name="PWD2" class="form-control" id="ipwd1" placeholder="Password" required>
+				<input type="password" name="PWD2" class="form-control" id="ipwd2" placeholder="Confirm Password" required>
 			</div>
 			<div class="form-group">
 				<label for="Contact">Contact Number</label>
@@ -67,7 +92,7 @@
 				<input type="checkbox"> Check me out
 				</label>
 			</div>
-		<button type="submit" class="btn btn-default">Submit</button>
+		<button type="submit" onclick="check()" class="btn btn-default">Submit</button>
 		</form>
 	</div>
 </div>

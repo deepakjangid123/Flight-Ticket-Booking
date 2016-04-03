@@ -9,7 +9,8 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="./bootstrap/js/bootstrap.min.js"></script>
-<title>No flights</title>
+<script src="./jquery/jquery.min.js"></script>
+<title>Wrong email id</title>
 <head>
 	<a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
 	<style>
@@ -21,7 +22,20 @@
 	</style>
 </head>
 <body background="images\hp_bg.jpg">
+<script>
 
+check = function() {
+var username = <%=session.getAttribute("userName")%>;
+if($("#iemail").val() == $("#username").val())
+	return true;
+else{
+	alert("You can't cancel others ticket, Sir!");
+	return false;
+	
+} 
+	
+}
+</script>
 
 <div class="row">
 	<div class="col-md-9 col-md-offset-10">
@@ -50,18 +64,29 @@
 		<h3 style="color:white"><b>Book your flight ticket here!</b></h3>
 	</div>
 </div>
-<div class="row">
-	<div class="col-md-5 col-md-offset-1">
-		<h5 style="color:red"><b>No flights are there according to your schedule!</b></h5>
-	</div>
-	<div class="col-md-5 col-md-offset-2">
-		<form action="homepage2.jsp">
-			<button type="submit" class="btn btn-default">Go Back</button>
-		</form>
-	</div>
+
+<div class="col-md-5 col-md-offset-1">
+<h5 style="color:red">You can't cancel others ticket, Sir!</h5>
+
+			<form onsubmit="return check()" action="verifybookingid.jsp" method="post">
+				<div class="row">
+
+			<div class="form-group">
+				<label for="emailid"><b Style="color:lime">Enter Your Email ID</b></label>
+					<input type="email" name="email" class="form-control" id="iemail" placeholder="Email" required>
+				</div>
+				<div class="form-group">
+				<label for="bookingid"><b Style="color:lime">Enter Booking ID</b></label>
+					<input type="text" name="bookingid" class="form-control" id="ibookingid" placeholder="Booking ID" required>
+				</div>
+				
+				<button type="submit" onclick="check()" class="btn btn-default">Cancel Ticket</button>
+			
+			</div>
+			</form>
+		
+
+
 </div>
-
-
-
 </body>
 </html>

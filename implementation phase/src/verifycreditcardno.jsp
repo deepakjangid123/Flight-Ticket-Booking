@@ -13,7 +13,7 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="./bootstrap/js/bootstrap.min.js"></script>
-<title>Verification</title>
+<title>verification</title>
 <head>
 	<a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
 	<style>
@@ -27,13 +27,14 @@
 <body background="images\hp_bg.jpg">
 <%
 String email=session.getAttribute("userName").toString();
-String pwd=session.getAttribute("passwrd").toString();
-String oldpwd=request.getParameter("oldPWD");
-String newpwd= request.getParameter("newPWD1");
-String tempemail,tempoldpwd;
-int flag=0;
 
-if(pwd.equals(oldpwd)){
+int creditcardno=Integer.parseInt(request.getParameter("creditcardno"));
+String c= Integer.toString(creditcardno);
+
+String tempemail;
+int tempcreditcardno;
+int flag2=1;
+		
 try{ 
 
   Class.forName("com.mysql.jdbc.Driver");
@@ -44,41 +45,41 @@ try{
 	  //statement query
 	 Statement state =connect.createStatement();
 	
-	
-	  ResultSet result = state.executeQuery("select * from customer");
-	
-	  while(result.next()){
-		   tempemail=result.getString("username");
-		   tempoldpwd=result.getString("password");
-		    if(email.equals(tempemail) && oldpwd.equals(tempoldpwd))
+	 ResultSet result1 = state.executeQuery("select * from customer");
+	 while(result1.next()){
+		   tempemail = result1.getString("username");
+			
+		    if(tempemail.equals(email))
 			{
-				 PreparedStatement insert= connect.prepareStatement("UPDATE customer SET password = ? WHERE username = ?");
-				 insert.setString(1,newpwd);
-				 insert.setString(2,email);
-				 session.setAttribute("passwrd",newpwd);
-				  insert.executeUpdate();
-				  %>
-       <jsp:forward page="passwordchanged.jsp"></jsp:forward>
-    <%
+			
+				tempcreditcardno=result1.getInt("credit_card_no");
+				String d=Integer.toString(tempcreditcardno);
+				if(d.equals(c))
+					flag2=0;
 			}
 	
+			
+	
 	  }
-	 
+	  if(flag2==1)
+	  {
+		%>
+       <jsp:forward page="invalidcreditcardno.jsp"></jsp:forward>
+		<%
+	  }
+	  else if(flag2==0)
+	  {
+		%>
+       <jsp:forward page="ticketconfirmation1.jsp"></jsp:forward>
+		<%
+		}
 	   connect.close();
 	   }catch(Exception ex){
 	  //handle error
 	  ex.printStackTrace();
-	  }
-	  }
-	  else
-	  {
-	  %>
-       <jsp:forward page="changepassword1.jsp"></jsp:forward>
-    <%
-	  
-	  }
-	
-	
+  }
+ 
+
  %>
 
 </body>

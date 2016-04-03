@@ -14,7 +14,7 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="./bootstrap/js/bootstrap.min.js"></script>
-<title>Profile</title>
+<title>Ticket details!</title>
 <body background="images\hp_bg.jpg">
 <head>
 	<a align="center" href="homepage.htm" target="link" style="color:lime"><h1>GreenTrip.com</h1></a>
@@ -57,61 +57,86 @@
 	</div>
 </div>
 
-	
+<div class="row">
 <%
-String email=session.getAttribute("userName").toString();
-String fname=session.getAttribute("firstname").toString();
-String lname=session.getAttribute("lastname").toString();
-String Address=session.getAttribute("ADDress").toString();
-String passwd=session.getAttribute("passwrd").toString();
-String gender=session.getAttribute("Gender").toString();
-String contactno=session.getAttribute("contactno").toString();
-try{ 
+String bookingid=session.getAttribute("bookingid").toString();
 
-			%>
-			<div class="col-md-10 col-md-offset-1">
-				<h4 style="color:indigo"><i><b>Your Details:-</b></i></h4>
-			</div>
-			<div class="col-md-10 col-md-offset-1">
-			 <table border="3" align="left" bordercolor="yellow" width="39%" cellspacing="2" cellpadding="4">
-				<tr >
+String tempbookingid="";
+String name="";
+String username="";
+String flightid="";
+double amount=0;
+try{
+  Class.forName("com.mysql.jdbc.Driver");
+	  
+	  //get connection
+	 Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/ars?user=root&password=feelthechange");
+	
+	  //statement query
+	 Statement state =connect.createStatement();
+	%><div class="row">
+		<div class="col-md-5 col-md-offset-1">
+				<h4 style="color:indigo"><i><b>Your Ticket Details:-</b></i></h4>
+			
+			
+			<div class="col-md-5 col-md-offset-1">
+			 <table border="3" align="center" bordercolor="yellow" width="100%" cellspacing="2" cellpadding="9">
+			 <tr >
 					<td style="color:cyan"><b>Name</b></td>
-					<td style="color:brown"><b><%=fname%> <%=lname%></b></td>
+					<td style="color:cyan"><b>Booking ID</b></td>
+					<td style="color:cyan"><b>Booking Email ID</b></td>
+					<td style="color:cyan"><b>Flight ID</b></td>
+					<td style="color:cyan"><b>Amount</b></td>
 				</tr>
-				<tr>	
-					<td style="color:cyan"><b>Email ID</b></td>
-					<td style="color:brown"><b><%=email%></b></td>
-				</tr>
+	<%
+	 ResultSet result = state.executeQuery("select * from ticket");
+	 while(result.next())
+	 {
+		tempbookingid=result.getString("booking_id");
+		if(tempbookingid.equals(bookingid))
+			{
+				
+				name=result.getString("name");
+				username=result.getString("username");
+				flightid=result.getString("flight_id");
+				amount=result.getDouble("amount");
+				%>
 				<tr>
-					<td style="color:cyan"><b>Gender</b></td>
-					<td style="color:brown"><b><%=gender%></b></td>
+					<td style="color:cyan"><b><%=name%></b></td>
+					<td style="color:cyan"><b><%=bookingid%></b></td>
+					<td style="color:cyan"><b><%=username%></b></td>
+					<td style="color:cyan"><b><%=flightid%></b></td>
+					<td style="color:cyan"><b><%=amount%></b></td>
 				</tr>
-				<tr>
-					<td style="color:cyan"><b>Address</b></td>
-					<td style="color:brown"><b><%=Address%></b></td>
-				</tr>
-				<tr>
-					<td style="color:cyan"><b>Contact No.</b></td>
-					<td style="color:brown"><b><%=contactno%></b></td>
-				</tr>
-
-				</table>
-				</div>
+				<%
+			}
+			
+	 }
+	 %>
+			</table>
+				
+				
+				
 				<br>
 				</br>
-				<div class="col-md-12 col-md-offset-1">
+				<div class="col-md-15 col-md-offset-5">
 				<br>
 				</br>
-					<form action="changepassword.jsp" method="post">
-						<button type="submit" class="btn btn-default center">Change Password</button>
+					<form action="homepage2.jsp" method="post">
+						<button type="submit" class="btn btn-default center">Take Me Home!</button>
+					</form>
+					<form action="cancelticket.jsp" method="post">
+						<button type="submit" class="btn btn-default center">Cancel Ticket(s)</button>
 					</form>
 				</div>
-			<%
+				</div>
+	 <%
 	   }catch(Exception ex){
 	  //handle error
 	  ex.printStackTrace();
   }
  
  %>
+ </div>
 </body>
 </html>

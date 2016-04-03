@@ -42,7 +42,7 @@
 </div>
 <div class="row">	
 	<nav class="nav">
-		<div class="col-sm-1"><a align="center" href="homepage.htm" style="color:lime"><h4>Flight</h4></a></div>
+		<div class="col-sm-1"><a align="center" href="homepage2.jsp" style="color:lime"><h4>Flight</h4></a></div>
 		<div class="col-sm-1"><a align="center" href="homepage.htm" style="color:lime"><h4>Complaint</h4></a></div>
 		<div class="col-sm-1"><a align="center" href="homepage.htm" style="color:lime"><h4>Instructions</h4></a></div>
 		<div class="col-sm-2"><a align="center" href="homepage.htm" style="color:lime"><h4>Contact Us</h4></a></div>
@@ -68,7 +68,7 @@ try{
   Class.forName("com.mysql.jdbc.Driver");
 	  
 	  //get connection
-	 Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/ars?user=root&password=yongchak");
+	 Connection connect = DriverManager.getConnection("jdbc:mysql://localhost/ars?user=root&password=feelthechange");
 	
 	  //statement query
 	 Statement state =connect.createStatement();
@@ -89,6 +89,7 @@ try{
 					<td><b>Available Seats</b></td>
 					<td><b>Amount(per ticket)</b></td>
 					<td><b>Book Now!</b></td>
+					
 				</tr>
 			 
 			 <%while(result.next()){
@@ -106,7 +107,11 @@ try{
 				String arrivaltime= result.getString("arrival_time");
 				String arrivalday= result.getString("arrival_day");
 				int totalseats= result.getInt("total_seats");
-				
+				session.setAttribute("flightid",flightid);
+				session.setAttribute("totalseats",totalseats);
+				session.setAttribute("departuretime",departuretime);
+				session.setAttribute("arrivaltime",arrivaltime);
+				session.setAttribute("arrivalday",arrivalday);
 				ResultSet result1 = state.executeQuery("select * from seats ");
 				while(result1.next()){
 					tempflightid = result1.getString("flight_id");
@@ -114,6 +119,8 @@ try{
 					if(flightid.equals(tempflightid) && flightclass.equals(tempflightclass)){
 					int availableseats=result1.getInt("available_seats");
 				int amount=result1.getInt("amount");
+				session.setAttribute("availableseats",availableseats);
+				session.setAttribute("amount",amount);
 				%>
 					<tr style="color:brown">
 						<td><b><%=flightid%></b></td>
@@ -125,6 +132,9 @@ try{
 						<td><b><%=flightclass%></b></td>
 						<td><b><%=availableseats%></b></td>
 						<td><b><%=amount%></b></td>
+						<td><form action="enterdetails.jsp" align="center">
+							<button type="submit"><i><u>Book!</u></i></button>
+							</form></td>
 					</tr>
 				
 				<%
