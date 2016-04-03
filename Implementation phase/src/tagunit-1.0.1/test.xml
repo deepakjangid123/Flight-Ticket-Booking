@@ -1,0 +1,58 @@
+<project name="test" default="test-stdout" basedir=".">
+
+  <property file="build.properties" />
+
+  <!-- parameters to the test run of the tagunit changes -->
+  <property name="test.page" value="http://localhost:8080/tagunit-examples/test/servlet/RunTests?uri=/test/tagunit/test.jsp"/>
+  <property name="test.formatter" value="org.tagunit.ant.XmlFormatter"/>
+  <property name="test.log.file" location="${basedir}/tagunit.out"/>
+
+  <taskdef name="tagunit" classname="org.tagunit.ant.TagUnitTask"/>
+
+  <!-- demonstrates how to invoke TagUnit tests when the server is already running -->
+  <target name="test-stdout">
+    <tagunit url="${test.page}"
+             stopOnFail="false"/>
+  </target>
+
+  <target name="test-logfile">
+    <tagunit url="${test.page}"
+             stopOnFail="false"
+             logfile="${test.log.file}"
+             formatter="${test.formatter}"/>
+  </target>
+
+  <!-- demonstrates how to invoke TagUnit tests when the server is NOT already running -->
+  <target name="unattended">
+
+    <parallel>
+      <java fork="yes" failonerror="false" classname="org.apache.catalina.startup.Bootstrap">
+        <arg value="start" />
+        <sysproperty key="catalina.base" value="${tomcat.home}" />
+        <sysproperty key="catalina.home" value="${tomcat.home}" />
+        <classpath>
+            <pathelement location="${java.home}/lib/tools.jar"/>
+            <pathelement location="${tomcat.home}/bin/bootstrap.jar"/>
+        </classpath>
+      </java>
+
+      <sequential>
+        <sleep seconds="30"/>
+        <tagunit url="http://localhost:8080/tagunit-examples/test/servlet/RunTests?uri=/test/tagunit/test.jsp"
+                 ignoreWarnings="true" stopOnFail="false"/>
+
+        <java fork="yes" failonerror="false" classname="org.apache.catalina.startup.Bootstrap">
+          <arg value="stop" />
+          <sysproperty key="catalina.base" value="${tomcat.home}" />
+          <sysproperty key="catalina.home" value="${tomcat.home}" />
+          <classpath>
+              <pathelement location="${java.home}/lib/tools.jar"/>
+              <pathelement location="${tomcat.home}/bin/bootstrap.jar"/>
+          </classpath>
+        </java>
+      </sequential>
+    </parallel>
+
+  </target>
+
+</project>
