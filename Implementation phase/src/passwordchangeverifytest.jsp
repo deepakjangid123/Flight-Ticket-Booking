@@ -84,6 +84,23 @@ try{
     syedahamad10@gmail.comCredential matched!!
   </tagunit:expectedResult>
 </tagunit:assertEquals>
+
+<tagunit:assertEquals name="SIGN IN: Password matching">
+  <tagunit:actualResult>
+    <c:choose>
+        <c:when test="${ pwd==pwd1}">
+         Password matched!!
+        </c:when>
+        <c:otherwise>
+		<c:out value="${pwd}"/>
+         Password doesnot matched!!
+        </c:otherwise>
+    </c:choose>
+  </tagunit:actualResult>
+  <tagunit:expectedResult>
+   Password matched!!
+  </tagunit:expectedResult>
+</tagunit:assertEquals>
 <% 
 	   connect.close();
 	   }catch(Exception ex){
