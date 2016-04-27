@@ -67,7 +67,24 @@ try{
 	  pageContext.setAttribute("mail", email);
 	  pageContext.setAttribute("pwd", pwd);
 	  %>
-	  			  
+
+<tagunit:assertEquals name="SIGN IN: Email not NULL">
+  <tagunit:actualResult>
+    <c:choose>
+        <c:when test="${ mail==NULL}">
+         Credential is null!!
+        </c:when>
+        <c:otherwise>
+		<c:out value="${mail}"/>
+         Credential not null!!
+        </c:otherwise>
+    </c:choose>
+  </tagunit:actualResult>
+  <tagunit:expectedResult>
+    syedahamad10@gmail.comCredential not null!!
+  </tagunit:expectedResult>
+</tagunit:assertEquals>
+	  
 <tagunit:assertEquals name="SIGN IN: Email matching">
   <tagunit:actualResult>
     <c:choose>
