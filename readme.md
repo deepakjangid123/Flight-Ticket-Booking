@@ -96,75 +96,76 @@ PSEUDO CODE:
 
 class customer:
 
-if(login with user credentials)
-    display homepage() with username;
-else
-    display homepage() with login()/register() option;
-if (search flight)
-    if(login)
-        go to searchflight() with user details,
-        src, dest, timeDate, noofticket, triptype, class;
-        flight schedules with price is returned;
-            if(book ticket)
-                go to bookTicket() with a particular flight id, payment() class;
-                flight confirmation is returned;
-                generateTicket() with user details, payment details, flight details etc.
-                if(cancel ticket)
-                    go to cancelTicket with booking confirmation id;
-    else
-        go to login()/register();
-        go to if(login) condition;
-if(ask for instruction)
-    go to instruction();
-if(ask for contact us)
-    go to contactus() with username;
+	if(login with user credentials)
+		display homepage() with username;
+	else
+		display homepage() with login()/register() option;
+	if (search flight)
+		if(login)
+			go to searchflight() with user details,
+			src, dest, timeDate, noofticket, triptype, class;
+			flight schedules with price is returned;
+				if(book ticket)
+					go to bookTicket() with a particular flight id, payment() class;
+					flight confirmation is returned;
+					generateTicket() with user details, payment details, flight details etc.
+					if(cancel ticket)
+						go to cancelTicket with booking confirmation id;
+		else
+			go to login()/register();
+			go to if(login) condition;
+	if(ask for instruction)
+		go to instruction();
+	if(ask for contact us)
+		go to contactus() with username;
 class admin:
 
-if(login with admin credentials)
-    display homepage() with adminname;
-else
-    display homepage() with adminlogin/register option;
-if(modify userdetails)
-    go to userdetail() with particular username in read/write mode;
-if(modify flightinfo)
-    go to filghtinfo() with a flight id in read/write mode;
-if(ask for display userdetails)
-    display userdetails();
-if(ask for display flightinfo)
-    display flightinfo();
-if( cancel ticket)
-    go to ticket() with username in read/write mode;
-class login: (admin login is similar to this)
+	if(login with admin credentials)
+		display homepage() with adminname;
+	else
+		display homepage() with adminlogin/register option;
+	if(modify userdetails)
+		go to userdetail() with particular username in read/write mode;
+	if(modify flightinfo)
+		go to filghtinfo() with a flight id in read/write mode;
+	if(ask for display userdetails)
+		display userdetails();
+	if(ask for display flightinfo)
+		display flightinfo();
+	if( cancel ticket)
+		go to ticket() with username in read/write mode;
+	class login: (admin login is similar to this)
 
-if(username is true && password is true)
-    return success with username;
-else
-    return login failed;
-class register: (admin register is similar to this)
+	if(username is true && password is true)
+		return success with username;
+	else
+		return login failed;
+	class register: (admin register is similar to this)
 
-enter username, name, password, address, contact;
-store all in userDetails;
-class searchFlight:
+	enter username, name, password, address, contact;
+	store all in userDetails;
+	class searchFlight:
 
-if(details are true && flightStatus() is vacant)
-    get flight schedules which matches with parameters provided by user from flightinfo();
-else 
-    return false;
+	if(details are true && flightStatus() is vacant)
+		get flight schedules which matches with parameters provided by user from flightinfo();
+	else 
+		return false;
+		
 class bookTicket:
 
-if(userdetails are true && flight schedule is true)
-    go to payment();
-    if(payment done)
-        generate booking id and return it;
-    else
-        return payment failed;
+	if(userdetails are true && flight schedule is true)
+		go to payment();
+		if(payment done)
+			generate booking id and return it;
+		else
+			return payment failed;
+			
 class cancleTicket:
 
-get booking id from tiket() and cancel it;
+	get booking id from tiket() and cancel it;
 class ticket:
 
-return the existing tickets;
+	return the existing tickets;
 class contactUs:
 
-enter complaint texts and submit it along with username;
-
+	enter complaint texts and submit it along with username;
